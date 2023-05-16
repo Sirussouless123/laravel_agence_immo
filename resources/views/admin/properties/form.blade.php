@@ -10,6 +10,18 @@
 @csrf 
 
    @method ( $property->exists ? 'put' : 'post')
+
+   <div> 
+   <button class="btn btn-primary">
+           @if ($property->exists)
+               Modifier
+           @else 
+               Créer
+            @endif
+
+   </button>
+
+   </div>
 </form>
     
 @endsection
