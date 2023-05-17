@@ -29,10 +29,25 @@
     <tbody>
 
     @foreach ($properties as $property)
+    <tr>
             <td>{{ $property->title}}</td>
             <td>{{ $property->surface}}</td>
             <td>{{ number_format($property->price, thousands_separator: ' ') }}</td>
             <td>{{ $property->city}}</td>
+            <td>
+<div class="d-flex gap-2 justify-content-end w-100">
+ <a href="{{ route('admin.property.edit', $property)}}" class="btn btn-info">Editer </a>
+
+ <form action="{{ route('admin.property.destroy', $property)}}" method="post">
+@csrf
+@method('delete')
+<button class="btn btn-danger">Supprimer </button>
+</form>
+
+</div>
+
+            </td>
+          </tr>
     @endforeach
     </tbody>
 
